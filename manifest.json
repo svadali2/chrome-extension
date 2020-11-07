@@ -2,11 +2,7 @@
     "name": "COVID-19 tracker",
     "version": "1.0",
     "description": "Check the number of COVID-19 cases in your country right now!",
-    "permissions": ["geolocation","storage","activeTab"],
-    "background": {
-        "scripts": ["api.js"],
-        "persistent": false
-    },
+    "permissions": ["storage","activeTab","http://*/"],
     "browser_action": {
         "default_popup": "popup.html"
     },

@@ -1,0 +1,94 @@
+body {
+	margin: 1rem 0rem 1rem 0rem;
+	padding: 0;
+  background-color: whitesmoke;
+  font-family: Roboto-Medium,Roboto,arial,sans-serif;
+  text-align: center;
+}
+
+.header {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 5%;
+}
+
+
+table { 
+  border-collapse:collapse;
+  margin: 0%;
+}
+
+th {
+  padding: 0rem 3rem 0rem 3rem;
+  font-size: small;
+  white-space: nowrap;
+  border-right: solid 1px dimgray; 
+}
+
+td { 
+  border-right: solid 1px dimgray; 
+  font-size: 3rem;
+  padding: 0rem 3rem 0rem 3rem;
+}
+
+td:last-child, th:last-child {
+  border-right: none;
+}
+
+hidden {
+    visibility: hidden;
+}
+
+.loader{
+	--loader-width: 70px;
+	--loader-height: 70px;
+	--loader-color-primary: #27ae60;
+	--loader-color-secondary: #eee;
+	--line-width: 3px;
+	--animation-duration: 2s;
+	--loader-initial-scale: 0.1;
+}
+.loader,.loader:before,.loader:after{
+	box-sizing: border-box;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+@keyframes recursive-circle {
+    0% {
+      transform: rotate(0); 
+    }
+    100% {
+      transform: rotate(360deg); 
+    } 
+}
+
+.loader.recursive-circle {
+    --loader-offset: calc((var(--loader-width,100px) / 4) - (var(--line-width,4px) / 2));
+    height: var(--loader-height, 100px);
+    width: var(--loader-width, 100px);
+    color: var(--loader-color-primary, #33f);
+    display: inline-block;
+    position: relative;
+    border: var(--line-width, 4px) solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    transform-origin: center center;
+    animation: recursive-circle var(--animation-duration, 1s)  linear infinite;
+}
+.loader.recursive-circle::after {
+    content: "";
+    height: 50%;
+    width: 50%;
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: var(--loader-offset,21px);
+    left: var(--loader-offset,21px);
+    border: var(--line-width, 4px) solid;
+    transform-origin: center center;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: recursive-circle calc(var(--animation-duration, 1s) / 2)  linear infinite reverse; 
+}
+  
